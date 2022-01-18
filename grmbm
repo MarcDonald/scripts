@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#Remove merged branches
+defaultBranch=$(defaultBranch)
+git branch --merged "$defaultBranch" | grep -v "^[ *]*$defaultBranch$" | xargs git branch -d
