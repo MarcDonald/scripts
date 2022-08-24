@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+#Shows processes running on a port
+processes=$(lsof -n -i4TCP:"$1")
+
+if [[ -z $processes ]];then
+  echo "No processes on port $1"
+else
+  echo $processes
+  echo $processes | awk '{ if ($2 != "PID") print $2; }' | tr -d '\n' | pbcopy
+
+  echo "\nCopied process ID to clipboard"
+fi

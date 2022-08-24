@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+# Checkout the default branch, pull in latest changes, cleanup merged branches
+git checkout "$(defaultBranch)" && git pull && grmbm
